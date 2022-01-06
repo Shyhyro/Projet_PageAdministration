@@ -1,0 +1,17 @@
+{
+    "name": "bosqu/projet_page-administration",
+    "autoload": {
+        "psr-4": {
+            "Bosqu\\ProjetPageAdministration\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shyhyro",
+            "email": "Bosquet.laurie@outlook.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.3"
+    }
+}
