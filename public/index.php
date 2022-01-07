@@ -1,6 +1,6 @@
 <?php
 
-use Bosqu\ProjetPageAdministration\Controller\HomeController;
+use Bosqu\ProjetPageAdministration\Controller\UserController;
 
 require_once "../vendor/autoload.php";
 require '../Config/Config.php';
@@ -35,9 +35,9 @@ if(isset($_GET['controller'])) {
         }
     }
     else {
-        (new HomeController)->home();
+        (new UserController)->home();
     }
 }
 else {
-    (new HomeController)->home();
+    (new UserController)->home();
 }

@@ -24,9 +24,9 @@ class Controller extends Environment
     {
         $loader = new FilesystemLoader(__DIR__ . '/../../templates');
         parent::__construct($loader, [
-            'debug' => Config::$DEBUG,
+            /*'debug' => Config::$DEBUG,
             'strict_variables' => \Config::$DEBUG,
-            'cache' => Config::$DEBUG ? false : __DIR__ . '/../../var/cache',
+            'cache' => Config::$DEBUG ? false : __DIR__ . '/../../var/cache',*/
             'auto_reload' => true
         ]);
 

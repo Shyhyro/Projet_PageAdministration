@@ -4,14 +4,13 @@ namespace Bosqu\ProjetPageAdministration\Controller;
 
 use Twig\Error\Error;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
 
     public function home()
     {
         try {
-            $this->render('home.html.twig', [
-                'title' => "Administration",
+            $this->render('user.html.twig', [
             ]);
         }
         catch (Error $e) {

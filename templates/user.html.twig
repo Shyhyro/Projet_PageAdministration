@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block title %}super titre{% endblock %}
+
+{% block css %}
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+{% endblock %}
+
+{% block body %}
+    <form action="#" method="post">
+        <label class="col" for="username"></label>
+        <input class="col" id="username" type="text">
+        <button class="col" type="button">New User</button>
+    </form>
+    <table class="striped centered responsive-table">
+        <thead>
+        <tr>
+            <th>User</th>
+            <th>Registration</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Alvin</td>
+            <td>00/00/00</td>
+            <td><button type="button">Edit</button><button type="button">Delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascript_end %}
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+{% endblock %}

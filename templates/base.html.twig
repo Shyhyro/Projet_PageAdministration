@@ -13,12 +13,15 @@
 <body>
 
 <header>
-    <nav>
-        <a href=""></a>
+    <nav class="row">
+        <h5 class="col">Administration</h5>
+        <a class="col" href="index.php?controller=user">Utilisateurs</a>
+        <a class="col" href="index.php?controller=article">Articles</a>
     </nav>
 </header>
 
 {% block body %} {% endblock %}
+
 {% block javascript_end %}{% endblock %}
 </body>
 </html>
