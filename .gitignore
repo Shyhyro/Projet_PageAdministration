@@ -1,3 +1,7 @@
 /vendor/
 /node_modules/
 /.idea/
+/public/js/materialize.js
+/public/js/materialize.min.js
+/public/css/materialize.css
+/public/css/materialize.min.css

@@ -12,7 +12,26 @@
 {% endblock %}
 
 {% block body %}
-    <button type="button">New article</button>
+    <form method="post" action="#" class="row">
+        <input class="col s2" placeholder="Article Title" type="text">
+        <div class="input-field col s2">
+            <select name="user" class="browser-default">
+                <option value="" disabled selected>Article creator</option>
+                <option value="Utilisateur1">Utilisateur 1</option>
+                <option value="Utilisateur2">Utilisateur 2</option>
+                <option value="Utilisateur3">Utilisateur 3</option>
+            </select>
+        </div>
+        <div class="input-field col s2">
+            <select name="category" class="browser-default">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="category1">category 1</option>
+                <option value="category2">category 2</option>
+                <option value="category3">category 3</option>
+            </select>
+        </div>
+        <button type="button">New article</button>
+    </form>
     <table class="striped centered responsive-table">
         <thead>
         <tr>
