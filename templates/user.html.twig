@@ -12,10 +12,10 @@
 {% endblock %}
 
 {% block body %}
-    <form action="#" class="col" method="post">
-        <label class="col" for="username"></label>
-        <input class="col" id="username" placeholder="New Username" type="text">
-        <button class="col" type="button">New User</button>
+    <form action="index.php?controller=user&action=add" class="row" method="post">
+        <label class="col" for="user"></label>
+        <input name="user" class="col s2" id="user" placeholder="New Username" type="text">
+        <button class="col s1" type="submit">New User</button>
     </form>
     <table class="striped centered responsive-table">
         <thead>
