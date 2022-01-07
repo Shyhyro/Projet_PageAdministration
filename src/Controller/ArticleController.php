@@ -31,12 +31,15 @@ class ArticleController extends Controller
 
     public function add()
     {
-        $article = new ArticleManager();
 
-        $user = $_GET['user'];
-        $category = $_GET['category'];
-        $article = $_GET['article'];
+        $user = strip_tags(trim($_POST['user']));
+        $category = strip_tags(trim($_POST['category']));
+        $article = strip_tags(trim($_POST['article']));
 
-        $article = $article->addArticle($user, $category, $article);
+        $article = (new ArticleManager())->addArticle($user, $category, $article);
+
+        if ($article) {
+            header('location:index.php?controller=article');
+        }
     }
 }

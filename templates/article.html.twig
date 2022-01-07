@@ -12,7 +12,8 @@
 {% endblock %}
 
 {% block body %}
-    <form id="createArticle" method="post" action="index.php?controller=article&action=add&article={{ form.vars.value }}" class="row">
+    {# form.vars.value #}
+    <form name="addArticle" id="createArticle" method="post" action="index.php?controller=article&action=add" class="row">
         <input name="article" class="col s2" placeholder="Article Title" type="text">
         <div class="input-field col s2">
             <select name="user" class="browser-default">
