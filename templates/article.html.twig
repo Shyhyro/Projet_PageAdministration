@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Articles{% endblock %}
+{% block title %}Articles Administration{% endblock %}
 
 {% block css %}
     <!--Import Google Icon Font-->
@@ -12,25 +12,25 @@
 {% endblock %}
 
 {% block body %}
-    <form method="post" action="#" class="row">
-        <input class="col s2" placeholder="Article Title" type="text">
+    <form id="createArticle" method="post" action="index.php?controller=article&action=add&article={{ form.vars.value }}" class="row">
+        <input name="article" class="col s2" placeholder="Article Title" type="text">
         <div class="input-field col s2">
             <select name="user" class="browser-default">
                 <option value="" disabled selected>Article creator</option>
-                <option value="Utilisateur1">Utilisateur 1</option>
-                <option value="Utilisateur2">Utilisateur 2</option>
-                <option value="Utilisateur3">Utilisateur 3</option>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="input-field col s2">
             <select name="category" class="browser-default">
-                <option value="" disabled selected>Choose your option</option>
-                <option value="category1">category 1</option>
-                <option value="category2">category 2</option>
-                <option value="category3">category 3</option>
+                <option value="" disabled selected>Article Category</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.category }}</option>
+                {% endfor %}
             </select>
         </div>
-        <button type="button">New article</button>
+        <button type="submit">New article</button>
     </form>
     <table class="striped centered responsive-table">
         <thead>
@@ -43,13 +43,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Title</td>
-            <td>Alvin</td>
-            <td>00/00/00</td>
-            <td>Others</td>
-            <td><button type="button">Edit</button><button type="button">Delete</button></td>
-        </tr>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.name }}</td>
+                <td>{{ article.user }}</td>
+                <td>{{ article.registration }}</td>
+                <td>{{ article.category }}</td>
+                <td><button type="button">Edit</button><button type="button">Delete</button></td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endblock %}

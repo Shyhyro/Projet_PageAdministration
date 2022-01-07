@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}super titre{% endblock %}
+{% block title %}User Administration{% endblock %}
 
 {% block css %}
     <!--Import Google Icon Font-->
@@ -26,11 +26,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Alvin</td>
-            <td>00/00/00</td>
-            <td><button type="button">Edit</button><button type="button">Delete</button></td>
-        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.registration }}</td>
+                <td><button type="button">Edit</button><button type="button">Delete</button></td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endblock %}
