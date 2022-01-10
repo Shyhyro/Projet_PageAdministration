@@ -38,4 +38,14 @@ class ArticleManager
 
         return $stmt->execute();
     }
+
+    public function editArticle($articleId, $article, $category) :bool
+    {
+        $stmt = Database::getInstance()->prepare("UPDATE article SET article = :article, category = :category WHERE id = :articleId ");
+        $stmt->bindValue(':articleId', $articleId);
+        $stmt->bindValue(":article", $article);
+        $stmt->bindValue(":category", $category);
+
+        return $stmt->execute();
+    }
 }

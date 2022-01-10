@@ -33,9 +33,28 @@
         </div>
         <button type="submit">New article</button>
     </form>
+    <form name="editArticle" id="editArticle" method="post" action="index.php?controller=article&action=edit" class="row">
+        <div class="input-field col s2">
+            <select name="article" class="browser-default">
+                {% for article in articles %}
+                    <option value="{{ article.id }}">{{ article.id }} : {{ article.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input name="newArticle" class="col s2" placeholder="new Title" type="text">
+        <div class="input-field col s2">
+            <select name="newCategory" class="browser-default">
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit">update article</button>
+    </form>
     <table class="striped centered responsive-table">
         <thead>
         <tr>
+            <th>Id</th>
             <th>Article</th>
             <th>Creator</th>
             <th>Registration</th>
@@ -46,11 +65,14 @@
         <tbody>
         {% for article in articles %}
             <tr>
+                <td>{{ article.id }}</td>
                 <td>{{ article.name }}</td>
                 <td>{{ article.user }}</td>
                 <td>{{ article.registration }}</td>
                 <td>{{ article.category }}</td>
-                <td><button type="button">Edit</button><button type="button">Delete</button></td>
+                <td>
+                    <a href="index.php?controller=article&action=delete&article={{ article.id }}">Delete</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

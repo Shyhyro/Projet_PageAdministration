@@ -17,9 +17,21 @@
         <input name="user" class="col s2" id="user" placeholder="New Username" type="text">
         <button class="col s1" type="submit">New User</button>
     </form>
+    <form action="index.php?controller=user&action=edit" class="row" method="post">
+        <div class="input-field col s2">
+            <select name="user" class="browser-default">
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input name="newUsername" class="col s2" placeholder="new username" type="text">
+        <button type="submit">Update</button>
+    </form>
     <table class="striped centered responsive-table">
         <thead>
         <tr>
+            <th>Id</th>
             <th>User</th>
             <th>Registration</th>
             <th>Actions</th>
@@ -28,9 +40,12 @@
         <tbody>
         {% for user in users %}
             <tr>
+                <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.registration }}</td>
-                <td><button type="button">Edit</button><button type="button">Delete</button></td>
+                <td>
+                    <a href="index.php?controller=user&action=delete&user={{ user.id }}">Delete</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

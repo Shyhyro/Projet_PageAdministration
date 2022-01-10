@@ -31,4 +31,27 @@ class UserController extends Controller
             header('location:index.php?controller=user');
         }
     }
+
+    public function delete()
+    {
+        $user = strip_tags(trim($_GET['user']));
+
+        $article = (new UserManager())->deleteUser($user);
+
+        if ($article) {
+            header('location:index.php?controller=user');
+        }
+    }
+
+    public function edit()
+    {
+        $user = strip_tags(trim($_POST['user']));
+        $newUsername = strip_tags(trim($_POST['newUsername']));
+
+        $userEdit = (new UserManager())->editUser($user, $newUsername);
+
+        if ($userEdit) {
+            header('location:index.php?controller=user');
+        }
+    }
 }

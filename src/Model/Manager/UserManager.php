@@ -35,4 +35,13 @@ class UserManager
 
         return $stmt->execute();
     }
+
+    public function editUser($userId, $username) :bool
+    {
+        $stmt = Database::getInstance()->prepare("UPDATE user SET username = :username WHERE id = :userId ");
+        $stmt->bindValue(':userId', $userId);
+        $stmt->bindValue(":username", $username);
+
+        return $stmt->execute();
+    }
 }
